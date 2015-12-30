@@ -99,7 +99,7 @@ password1.on('keyup', function () {
 			requirementUnmet('specials');
 		}
 	}
-	
+	updateFeedback(password1.val());
 });
 
 password2.on('keyup', function () {
@@ -133,4 +133,33 @@ function requirementMet(rule) {
 
 function requirementUnmet(rule) {
 	$('#' + rule + '').removeClass('met').addClass('unmet');
+}
+function updateFeedback(password) {
+	var strength = zxcvbn(password);
+	var score = strength.score;
+	var meter = $('#strength');
+
+	if( password.length < 1 ) {
+		meter.removeClass().addClass('very-weak');
+		return;
+	}
+
+	switch(score) {
+		case 0:
+			meter.removeClass().addClass('very-weak');
+			break;
+		case 1:
+			meter.removeClass().addClass('weak');
+			break;
+		case 2:
+			meter.removeClass().addClass('good');
+			break;
+		case 3:
+			meter.removeClass().addClass('better');
+			break;
+		case 4:
+			meter.removeClass().addClass('optimal');
+			break;
+	}
+
 }
