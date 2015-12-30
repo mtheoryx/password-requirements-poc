@@ -11,7 +11,7 @@
   "author": "David R Poindexter III <drpoindexter@gmail.com> (http://vcard.davidrpoindexter.com/)",
   "license": "MIT",
   "dependencies": {
-    "password-sheriff": "1.0.0"
+    "password-sheriff": "git://github.com/stingerlabs/password-sheriff.git#6dbf2ac45248f025402ffc6132f5a3c2a64c123c"
   },
   "devDependencies": {
     "watchify": "3.6.1"
