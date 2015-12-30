@@ -1,0 +1,85 @@
+.requirements {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+		.requirements li {
+			margin: 0;
+			padding: 0;
+		}
+		.rule.unmet {
+			color: #ff585d;
+		}
+		.rule.met {
+			color: green;
+		}
+		.meter {
+			position: relative;
+		}
+		.meter > div {
+			border: 1px solid #aeaeae;
+			height: 30px;
+			width: 200px;
+			margin: 10px 0;
+		}
+		.meter .very-weak {
+			border: 2px solid #ff585d;
+			background-color: rgba(255, 0, 0, 0.32);
+		}
+		.meter .very-weak:after {
+			content: 'Very Weak';
+			position: absolute;
+			left: 210px;
+			top:5px;
+			color: #ff585d;
+		}
+		.meter .weak {
+			border: 1px solid #ff585d;
+			border-left-width: 50px;
+		}
+		.meter .weak:after {
+			content: 'Weak';
+			position: absolute;
+			left: 210px;
+			top:5px;
+			color: #ff585d;
+		}
+		.meter .good {
+			border: 1px solid #ffdb2d;
+			border-left-width: 100px;
+		}
+		.meter .good:after {
+			content: 'Good';
+			position: absolute;
+			left: 210px;
+			top:5px;
+			color: #8f7a1a;
+		}
+		.meter .better {
+			border: 1px solid #ff9f19;
+			border-left-width: 150px;
+		}
+		.meter .better:after {
+			content: 'Better';
+			position: absolute;
+			left: 210px;
+			top:5px;
+			color: #ff9f19;
+		}
+		.meter .optimal {
+			border: 1px solid #009600;
+			border-left-width: 200px;
+		}
+		.meter .optimal:after {
+			content: 'Optimal';
+			position: absolute;
+			left: 210px;
+			top:5px;
+			color: #009600;
+		}
+		input.invalid {
+			border: 1px solid red;
+		}
+		input.valid {
+			border: 1px solid green;
+		}

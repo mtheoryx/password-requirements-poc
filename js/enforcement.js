@@ -99,14 +99,41 @@ password1.on('keyup', function () {
 			requirementUnmet('specials');
 		}
 	}
+
+	//Update password strength meter
 	updateFeedback(password1.val());
+
+	//If they go back after a valid match, and change first password
+	var passes = password1.val() === password2.val();
+	if( passes ) {
+		password2.removeClass().addClass('valid');
+		$('#save-password').prop('disabled', false);
+	} else {
+		password2.removeClass().addClass('invalid');
+		$('#save-password').prop('disabled', true);
+	}
+
+	//Check for total validity of first password
+	if( isValid() ) {
+		password1.removeClass().addClass('valid');
+		password2.prop('disabled', false);
+	}
+});
+
+password2.focusin(function () {
+	if( password1.val() !== password2.val() ) {
+		password2.removeClass().addClass('invalid');
+	}
 });
 
 password2.on('keyup', function () {
-	var passes = password1.val() === password2.val();
-	//if( passes ) {
-	//	console.log('enabling the button!');
-	//}
+	if( passwordsMatch(password1.val(), password2.val()) ) {
+		password2.removeClass().addClass('valid');
+		$('#save-password').prop('disabled', false);
+	} else {
+		password2.removeClass().addClass('invalid');
+		$('#save-password').prop('disabled', true);
+	}
 });
 
 $(function() {
@@ -122,11 +149,24 @@ $(function() {
 	}
 });
 
+function isValid() {
+	var unmetItems = $('#requirements-list li.unmet').length;
+	return unmetItems < 1;
+}
+function passwordsMatch(pass1, pass2) {
+	return pass1 === pass2;
+}
 function addUnMetRequirement(rule) {
 	var displayString = enforcer[rule].toString().replace(/([\*][\s])/gi, '').replace(/:/, '');
 	$('#requirements-list').append('<li class="rule unmet" id="' + rule + '">' + displayString + '</li>');
 }
+$('#create-password').on('submit', function (e) {
+	e.preventDefault();
 
+	if( isValid() && passwordsMatch(password1.val(), password2.val()) ) {
+		alert('yay!');
+	}
+});
 function requirementMet(rule) {
 	$('#' + rule + '').removeClass('unmet').addClass('met');
 }

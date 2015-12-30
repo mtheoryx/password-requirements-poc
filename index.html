@@ -4,96 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Password Requirements POC</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<style>
-		.requirements {
-			margin: 0;
-			padding: 0;
-			list-style-type: none;
-		}
-		.requirements li {
-			margin: 0;
-			padding: 0;
-		}
-		.rule.unmet {
-			color: #ff585d;
-		}
-		.rule.met {
-			color: green;
-		}
-		.meter {
-			position: relative;
-		}
-		.meter > div {
-			border: 1px solid #aeaeae;
-			height: 30px;
-			width: 200px;
-			margin: 10px 0;
-		}
-		.meter .very-weak {
-			border: 2px solid #ff585d;
-			background-color: rgba(255, 0, 0, 0.32);
-		}
-		.meter .very-weak:after {
-			content: 'Very Weak';
-			position: absolute;
-			left: 210px;
-			top:5px;
-			color: #ff585d;
-		}
-		.meter .weak {
-			/*border: 2px solid #ff585d;*/
-			border-top: 1px solid #ff585d;
-			border-right: 1px solid #ff585d;
-			border-bottom: 1px solid #ff585d;
-			border-left: 50px solid #ff585d;
-		}
-		.meter .weak:after {
-			content: 'Weak';
-			position: absolute;
-			left: 210px;
-			top:5px;
-			color: #ff585d;
-		}
-		.meter .good {
-			border-top: 1px solid #ffdb2d;
-			border-right: 1px solid #ffdb2d;
-			border-bottom: 1px solid #ffdb2d;
-			border-left: 100px solid #ffdb2d;
-		}
-		.meter .good:after {
-			content: 'Good';
-			position: absolute;
-			left: 210px;
-			top:5px;
-			color: #8f7a1a;
-		}
-		.meter .better {
-			border-top: 1px solid #ff9f19;
-			border-right: 1px solid #ff9f19;
-			border-bottom: 1px solid #ff9f19;
-			border-left: 150px solid #ff9f19;
-		}
-		.meter .better:after {
-			content: 'Better';
-			position: absolute;
-			left: 210px;
-			top:5px;
-			color: #ff9f19;
-		}
-		.meter .optimal {
-			border-top: 1px solid #009600;
-			border-right: 1px solid #009600;
-			border-bottom: 1px solid #009600;
-			border-left: 200px solid #009600;
-		}
-		.meter .optimal:after {
-			content: 'Optimal';
-			position: absolute;
-			left: 210px;
-			top:5px;
-			color: #009600;
-		}
-	</style>
+	<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 <div class="reset-password-form container">
@@ -101,16 +12,19 @@
 	<hr />
 	<div class="row">
 		<div class="password-form col-xs-6">
-			<label for="password1">Enter Password:</label>
-			<br />
-			<input type="password" name="password1" id="password1"/>
-			<br />
-			<label for="password2">Re-enter Password:</label>
-			<br />
-			<input type="password" name="password2" id="password2"/>
-			<br />
-			<br />
-			<button disabled>Save Password</button>
+			<form id="create-password" action="/">
+				<label for="password1">Enter Password:</label>
+				<br />
+				<input type="password" name="password1" id="password1"/>
+				<br />
+				<label for="password2">Re-enter Password:</label>
+				<br />
+				<input type="password" name="password2" id="password2" disabled/>
+				<br />
+				<br />
+				<button type="submit" id="save-password" disabled>Save Password</button>
+			</form>
+
 		</div>
 		<div class="password-rules col-xs-6">
 			<span>Strength:</span><br />
