@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Password Requirements POC</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<style>
+		.rule.unmet {
+			color: #ff585d;
+		}
+		.rule.met {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+<div class="reset-password-form container">
+	<h1>Create Password</h1>
+	<hr />
+	<div class="row">
+		<div class="password-form col-xs-6">
+			<label for="password1">Enter Password:</label>
+			<br />
+			<input type="password" name="password1" id="password1"/>
+			<br />
+			<label for="password2">Re-enter Password:</label>
+			<br />
+			<input type="password" name="password2" id="password2"/>
+			<br />
+			<br />
+			<button disabled>Save Password</button>
+		</div>
+		<div class="password-rules col-xs-6">
+			<span>Requirements:</span>
+			<ul id="requirements-list"></ul>
+		</div>
+	</div>
+</div>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="static/app.js"></script>
+</body>
+</html>

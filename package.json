@@ -1,0 +1,19 @@
+{
+  "name": "password-requirements-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify js/enforcement.js -o static/app.js",
+    "dev": "watchify js/enforcement.js -o static/app.js"
+  },
+  "author": "David R Poindexter III <drpoindexter@gmail.com> (http://vcard.davidrpoindexter.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "password-sheriff": "1.0.0"
+  },
+  "devDependencies": {
+    "watchify": "3.6.1"
+  }
+}
